@@ -89,9 +89,8 @@ The size of the data set is `r nrow(df2)` and `r ncol(df2)`. The mean of the dat
 library(ggplot2)
 
 ggplot(data=df2, aes(x = x, y = y, color = xy_1)) + geom_point() + labs(title = "logical variable scatterplot")
-
 #save the plot
-ggsave("plot for x+y>1.pdf")
+ggsave("logical variable scatterplot.pdf")
 
 ggplot(data=df2, aes(x = x, y = y, color = xy_num)) + geom_point()+ labs(title = "numeric variable scatterplot")
 ggplot(data=df2, aes(x = x, y = y, color = xy_fac)) + geom_point()+ labs(title = "factor variable scatterplot")
