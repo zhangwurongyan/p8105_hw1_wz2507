@@ -2,14 +2,14 @@
 title: "p8105_hw1_wz2507"
 author: "Wurongyan Zhang"
 date: "9/15/2019"
-output: pdf_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-##problem 1
+## problem 1
 ```{r, include=FALSE}
 library(tidyverse)
 ```
@@ -45,8 +45,7 @@ num_logic = as.numeric(pull(df,nsamp_pos))
 num_char = as.numeric(pull(df,vec_char))
 num_fac = as.numeric(pull(df,vec_fac))
 mean(num_logic)
-mean(num_char)
-#this results in "NA"
+mean(num_char) #this results in "NA"
 mean(num_fac)
 ```
 
@@ -59,15 +58,14 @@ Factor and logical variable can be divided into different levels and can be pres
 ```{r,eval=FALSE}
 #multiplication after conversion
 (pull(df, nsamp))*as.numeric(pull(df,nsamp_pos))
-(pull(df, nsamp))*as.factor(pull(df,nsamp_pos))
-#this command still present NA's
+(pull(df, nsamp))*as.factor(pull(df,nsamp_pos)) #this command still present NA's
 (as.numeric(as.factor(pull(df,nsamp_pos))))*(pull(df, nsamp))
 ```
 
 Factor variables could not multiply like nueric variables so if we factorize logical variable, the multiplication would not work. However, if we use the numeric levels of logical variable, the multiplication would work.
 
 
-##problem 2
+## problem 2
 ```{r}
 #create the data frame
 set.seed(500)
