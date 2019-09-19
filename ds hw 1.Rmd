@@ -14,7 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 ```
 
-```{r}
+```{r,warning=FALSE}
 #create dataframe
 set.seed(500)
 df = tibble(
@@ -56,7 +56,7 @@ Factor and logical variable can be divided into different levels and can be pres
 
 
 
-```{r}
+```{r,eval=FALSE}
 #multiplication after conversion
 (pull(df, nsamp))*as.numeric(pull(df,nsamp_pos))
 (pull(df, nsamp))*as.factor(pull(df,nsamp_pos))
@@ -82,7 +82,6 @@ df2 = tibble(
 
 
 The size of the data set is `r nrow(df2)` and `r ncol(df2)`. The mean of the data set is `r mean(pull(df2,x))`, median is `r median(pull(df2,x))`, standard deviation is `r sd(pull(df2,x))` . The proportion of the cases for which x+y>1 is `r length((which(pull(df2,xy_1))))/length(pull(df2, xy_1))`.
-
 
 
 ```{r}
