@@ -27,10 +27,10 @@ mean_vec_fac = mean(pull(df, vec_fac))
 #mean_vec_fac
 ```
 
-Numerical variables and logical variables can take the mean but
+Comment: Numerical variables and logical variables can take the mean but
 character and factor variables could not take the mean. However, logical
-variable can take the mean because the levels are converted from “true
-or false” to “1 or 0”’s.
+variable can take the mean because the levels are considered as “1 or
+0”’s for “True” and “False”.
 
 ``` r
 #try to use as.numeric to convert variables
@@ -42,13 +42,14 @@ mean(num_char) #this results in "NA"
 mean(num_fac)
 ```
 
-Logical vector changed from “True” or “False” to “1” and “0”. Character
-vector changed from character to “NA”’s. Factor vector changed to
-numbers. The mean of the logical variable did not change, character
+Comment: Logical vector changed from “True” or “False” to “1” and “0”.
+Character vector changed from character to “NA”’s. Factor vector changed
+to numbers. The mean of the logical variable did not change, character
 variables still could not take the mean, and the mean of factor variable
 can be taken. Factor and logical variable can be divided into different
 levels and can be presented as numbers after the command as.numeric, so
-both of them can take the mean after transformed them into numerics.
+both of them can take the mean after transformed them into
+numerics(factor variables converted to “1”, “2” and “3”’s in this case).
 However, character variables cannot be presented as numbers so it could
 not take the mean.
 
@@ -59,12 +60,13 @@ not take the mean.
 (as.numeric(as.factor(pull(df,nsamp_pos))))*(pull(df, nsamp))
 ```
 
-Factor variables could not multiply like nueric variables so if we
-factorize logical variable, the multiplication would not work. However,
+Comment: Factor variables could not multiply like numeric variables so
+if we factorize logical variable, the multiplication would not work
+since it turned into “True” and “False” instead of “1” and “0”. However,
 if we use the numeric levels of logical variable, the multiplication
-would work.
+would work since it transformed to strings.
 
-## problem 2
+## Problem 2
 
 ``` r
 #create the data frame
@@ -83,7 +85,7 @@ The size of the data set is 500 and 5. The mean of the data set is
 proportion of the cases for which x+y\>1 is 0.22.
 
 ``` r
-#create the gg plot
+#create the scatterplot by using gg plot
 library(ggplot2)
 
 ggplot(data=df2, aes(x = x, y = y, color = xy_1)) + geom_point() + labs(title = "logical variable scatterplot")
@@ -110,6 +112,8 @@ ggplot(data=df2, aes(x = x, y = y, color = xy_fac)) + geom_point()+ labs(title =
 
 ![](ds-hw-1_files/figure-gfm/unnamed-chunk-6-3.png)<!-- -->
 
+Comment: All plots’ colors were divided by the line x+y=1 with x+y\>1
+are above the line in green/blue and x+y\<1 are below the line in red.
 The color scale of logical vector is just “True” and “False”. For the
 color scale after numeric the logical vector, it turned into a continuum
 of color scale with a range of number from 0 to 1. However, the color
